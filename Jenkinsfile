@@ -18,7 +18,7 @@ pipeline {
                 expression { return env.CHANGE_ID != null }
             }
             steps {
-                sh 'mvn checkstyle:checkstyle'
+                sh './mvnw checkstyle:checkstyle'
             }
             post {
                 always {
@@ -32,7 +32,7 @@ pipeline {
                 expression { return env.CHANGE_ID != null }
             }
             steps {
-                sh 'mvn test'
+                sh './mvnw test'
             }
         }
 
@@ -41,7 +41,7 @@ pipeline {
                 expression { return env.CHANGE_ID != null }
             }
             steps {
-                sh 'mvn package -DskipTests'
+                sh './mvnw package -DskipTests'
             }
         }
 
